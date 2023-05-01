@@ -1,0 +1,27 @@
+Package: riverweed
+Title: Aquatic macrophyte growth models for Podostemum ceratophyllum
+Version: 1.0.0
+Published: 
+Authors@R: 
+        c(person(given = "Lee H.", family = "Dietterich", , "lee.dietterich@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0000-0000-0000")),
+        person(given = "S. Kyle", family = "McKay",
+           role = c("aut"),
+           email = "kyle.mckay@usace.army.mil",
+           comment = c(ORCID = "0000-0003-2703-3841")))
+Maintainer: Lee H. Dietterich <lee.dietterich@gmail.com>
+Description: This package quantifies growth of aquatic macrophytes in rivers. 
+    The package was designed around hornleaf riverweed (Podostemum ceratophyllum), 
+    but modules may be useful for other taxa.
+URL: GitHub (<https://github.com/USACE-WRISES>)
+Vignettes: Original documentation can be found in Dietterich and McKay (2023).
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Depends: 
+    R (>= 4.1.0)
+LazyData: true
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+License: MIT + file LICENSE
