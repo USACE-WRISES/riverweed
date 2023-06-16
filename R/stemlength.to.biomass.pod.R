@@ -58,7 +58,7 @@
 #' @export
 stemlength.to.biomass.pod <- function(stem.cm, type){
   #Error handling for invalid model specification
-  if(!(type %in% seq(1,6))){afdm.g <- "Invalid model specification"}
+  if(!(type %in% seq(1,6))){stop("Invalid model specification")}
 
   #Computation of AFDM for all other (realistic) stem lengths
     #Type 1
@@ -85,4 +85,3 @@ stemlength.to.biomass.pod <- function(stem.cm, type){
   #Send output
   return(afdm.g)
 }
-

@@ -55,7 +55,8 @@
 #' @export
 herbivory <- function(old.size, H, Vlow, Vhigh, V, type){
   #Error handling for invalid model specification
-  if(!(type %in% seq(1,3))){afdm.g <- "Invalid model specification"}
+  if(!(type %in% seq(1,3))){stop("Invalid model specification")}
+  else if(H<0 | H>1){stop("H not between 0 and 1")}
 
   #Computation of size (e.g. biomass) lost to herbivory
     #Type 1: lose constant proportion of size
@@ -74,4 +75,3 @@ herbivory <- function(old.size, H, Vlow, Vhigh, V, type){
   #Send output
   return(new.size)
 }
-

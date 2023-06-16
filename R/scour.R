@@ -48,7 +48,8 @@
 #' @export
 scour <- function(old.size, size.min, S, Vlow, Vhigh, V, type){
   #Error handling for invalid model specification
-  if(!(type %in% seq(1,3))){new.size <- "Invalid model specification"}
+  if(!(type %in% seq(1,3))){stop("Invalid model specification")}
+  else if(S < 0 | S > 1){stop("S not between 0 and 1")}
   
   #Computation of size (e.g. biomass) lost to scour
   #Type 1: lose constant proportion of size
@@ -67,4 +68,3 @@ scour <- function(old.size, size.min, S, Vlow, Vhigh, V, type){
   #Send output
   return(new.size)
 }
-
