@@ -17,7 +17,7 @@ set to NA for exponential growth).}
 \item{type}{form of growth model as integer of 1 for exponential growth or 2 for logistic growth.}
 }
 \value{
-size of macrophyte after growth
+size of macrophyte after growth.
 }
 \description{
 \code{growth.empirical} calculates the daily biomass growth of a macrophyte

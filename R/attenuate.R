@@ -25,20 +25,12 @@
 #' http://www.esf.edu/efb/schulz/Limnology/Light.html
 #' 
 #' @examples
-#' #Result: Stem length of 20.63898 centimeters
-#' biomass.to.stemlength.pod(0.1, type=1)
+#' #Result: Vector of c(2394.6852, 1596.4568, 399.1142) microEinsteins of PAR
+#' attenuate(PAR=c(3000,2000,500), z=1, prop.reflect=0.1, K=0.12, selfshading=FALSE)
 #' 
-#' #Result: Stem length of 43.11088 centimeters
-#' biomass.to.stemlength.pod(0.1, type=2)
+#' #Result: Vector of c(2255.2296, 1503.4864, 375.8716) microEinsteins of PAR
+#' attenuate(PAR=c(3000,2000,500), z=1, prop.reflect=0.1, K=0.12, Kp=0.2, Bz=0.3, selfshading=TRUE)
 #' 
-#' #Result: Stem length of 14.82514 centimeters
-#' biomass.to.stemlength.pod(0.1, type=3)
-#' 
-#' #Result: Error message indicating incorrect model specification
-#' biomass.to.stemlength.pod(0.1, type=7)
-#' 
-#' #Result: Warning message indicating unrealistic biomass
-#' #biomass.to.stemlength.pod(1, type=1)
 #' 
 #' @export
 
