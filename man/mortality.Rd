@@ -12,7 +12,7 @@ mortality(old.size, mort.rate)
 \item{mort.rate}{mortality rate of macrophyte, in g/g/day}
 }
 \value{
-biomass of macrophyte after mortality
+daily macrophyte biomass loss due to mortality, a positive number.
 }
 \description{
 \code{mortality} calculates macrophyte biomass loss due to mortality
@@ -21,8 +21,20 @@ biomass of macrophyte after mortality
 Calculates plant mortality, following NetLogo version of mortality rather than R GenVeg version. Note GenVeg uses mortality rate of 0.021 /d (that is, 2.1\% loss per day), and the GenVeg NetLogo mortality file contains some interesting simple respiration functions.
 }
 \examples{
-#Result: Biomass of 1.96 g
-mortality(old.size=2, mort.rate=0.02)
+#Result: Stem length of 20.63898 centimeters
+biomass.to.stemlength.pod(0.1, type=1)
+
+#Result: Stem length of 43.11088 centimeters
+biomass.to.stemlength.pod(0.1, type=2)
+
+#Result: Stem length of 14.82514 centimeters
+biomass.to.stemlength.pod(0.1, type=3)
+
+#Result: Error message indicating incorrect model specification
+biomass.to.stemlength.pod(0.1, type=7)
+
+#Result: Warning message indicating unrealistic biomass
+#biomass.to.stemlength.pod(1, type=1)
 
 }
 \references{

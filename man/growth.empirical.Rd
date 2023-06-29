@@ -4,7 +4,7 @@
 \alias{growth.empirical}
 \title{Calculate macrophyte growth based on empirical data}
 \usage{
-growth.empirical(old.size, growth.rate, max.size, type)
+growth.empirical(old.size, growth.rate, max.size = 1e+06, type)
 }
 \arguments{
 \item{old.size}{size at prior time step.}
@@ -17,7 +17,7 @@ set to NA for exponential growth).}
 \item{type}{form of growth model as integer of 1 for exponential growth or 2 for logistic growth.}
 }
 \value{
-size of macrophyte after growth.
+daily macrophyte biomass gain due to exponential or logistic growth.
 }
 \description{
 \code{growth.empirical} calculates the daily biomass growth of a macrophyte
@@ -38,7 +38,9 @@ $change.size = growth.rate*((max.size-old.size)/max.size)$
 
 For Podostemum, Wood et al. (2019) estimated a relative growth rate of 0.026 cm/cm/day (95\% credible
 interval 0.013-0.039 cm/cm/day) in the absence of herbivory. We estimate maximum reasonable sizes of
-50 cm or 0.4 g ash-free dry mass based on Rack (2022).
+50 cm or 0.4 g ash-free dry mass based on Rack (2022). Note that max.size is given a default value
+of 1e6 so that simulating exponential growth (type=1) does not require specifying a maximum size
+for most reasonable biomass values.
 }
 \examples{
 #Result: stem length of 10.5 cm

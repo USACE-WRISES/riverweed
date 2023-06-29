@@ -21,14 +21,20 @@ daylength, the number of hours between sunrise and sunset.
 Given Julian day and latitude, this function calculates day length in hours following GenVeg (CITE, plus their sources).
 }
 \examples{
-#Result: day length of 12.90703 hours
-daylength(120, 25)
+#Result: Stem length of 20.63898 centimeters
+biomass.to.stemlength.pod(0.1, type=1)
 
-#Result: day length of 12.28713 hours
-daylength(180, 5)
+#Result: Stem length of 43.11088 centimeters
+biomass.to.stemlength.pod(0.1, type=2)
 
-#Result: day length of 5.837386 hours
-daylength(5, 60)
+#Result: Stem length of 14.82514 centimeters
+biomass.to.stemlength.pod(0.1, type=3)
+
+#Result: Error message indicating incorrect model specification
+biomass.to.stemlength.pod(0.1, type=7)
+
+#Result: Warning message indicating unrealistic biomass
+#biomass.to.stemlength.pod(1, type=1)
 
 }
 \references{

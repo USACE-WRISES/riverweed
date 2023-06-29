@@ -5,7 +5,7 @@
 #' @param stem.cm stem length in cm.
 #' @param max.stem.cm physiological maximum of stem length in cm.
 #'
-#' @return size of macrophyte after breakage as stem length in cm.
+#' @return daily macrophyte loss due to breakage, a positive number.
 #'  
 #' @details 
 #' This function removes stem length in excess of a user-defined physiological maximum, returning 

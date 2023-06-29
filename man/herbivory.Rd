@@ -20,7 +20,7 @@ herbivory(old.size, H, Vlow, Vhigh, V, type)
 \item{type}{an integer between 1 and 3 specifying the numerical form of the herbivory model.}
 }
 \value{
-size of macrophyte after herbivory
+daily macrophyte biomass loss due to herbivory, a positive number.
 }
 \description{
 \code{herbivory} calculates the size of a macrophyte after losses due to herbivory.

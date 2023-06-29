@@ -22,7 +22,7 @@ scour(old.size, size.min, S, Vlow, Vhigh, V, type)
 \item{type}{an integer between 1 and 3 specifying the numerical form of the scour model.}
 }
 \value{
-size of macrophyte after scour
+daily macrophyte biomass loss due to scour, a positive number.
 }
 \description{
 \code{scour} calculates the size of a macrophyte after losses due to scour.

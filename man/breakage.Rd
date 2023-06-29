@@ -12,7 +12,7 @@ breakage(stem.cm, max.stem.cm)
 \item{max.stem.cm}{physiological maximum of stem length in cm.}
 }
 \value{
-size of macrophyte after breakage as stem length in cm.
+daily macrophyte loss due to breakage, a positive number.
 }
 \description{
 \code{breakage} removes stem length for physiologically unrealistic stem length
@@ -21,7 +21,8 @@ size of macrophyte after breakage as stem length in cm.
 This function removes stem length in excess of a user-defined physiological maximum, returning
 unrealistically high stem lengths to their maximum allowed value. Parameterization is based on
 observations that most Podostemum stems are less than 20 cm long (Hammond 1937), and we rarely
-observe stems longer than ~30 cm.
+observe stems longer than ~30 cm. This function could also be applied to biomass, in which case a
+reasonable upper limit for a single stem is ~0.4 g ash-free dry mass.
 
 #' @references
 Hammond, Bayard L. 1937. Development of Podostemon ceratophyllum. Bulletin of the Torrey Botanical

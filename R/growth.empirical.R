@@ -8,7 +8,7 @@
 #' set to NA for exponential growth).
 #' @param type form of growth model as integer of 1 for exponential growth or 2 for logistic growth.
 #'
-#' @return size of macrophyte after growth.
+#' @return daily macrophyte biomass gain due to exponential or logistic growth.
 #'  
 #' @details 
 #' This function calculates macrophyte growth in a given time step using empirically parameterized 

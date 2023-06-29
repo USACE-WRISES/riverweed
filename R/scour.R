@@ -10,7 +10,7 @@
 #' @param V flow velocity in m/s.
 #' @param type an integer between 1 and 3 specifying the numerical form of the scour model.
 #'
-#' @return size of macrophyte after scour
+#' @return daily macrophyte biomass loss due to scour, a positive number.
 #' 
 #' @details 
 #' This function calculates macrophyte size (stem length or biomass) following losses due to scour in a 

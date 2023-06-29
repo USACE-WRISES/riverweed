@@ -18,7 +18,7 @@ respiration(kmprime, temp, liveweight, totalweight, glucosereq)
 \item{glucosereq}{glucose requirement for growth. GenVeg, citing Teh (2006) Table 7.4, give values of 1.436 for leaves, 1.513 for stems, and 1.444 for roots.}
 }
 \value{
-daily biomass loss due to maintenance respiration.
+daily biomass loss due to maintenance respiration, a positive number.
 }
 \description{
 \code{respiration} calculates the amount of biomass lost by a macrophyte on a given day due to maintenance respiration.
@@ -27,14 +27,20 @@ daily biomass loss due to maintenance respiration.
 This function calculates macrophyte biomass losses due to maintenance respiration, and is intended to be used alongside the photosynthesis function to convert gross photosynthetic assimilation to net photosynthetic assimilation.  This function applies to a single plant organ or tissue, but can be looped over different organs or tissues with different metabolic properties.  Positive values of respiration represent biomass lost to respiration, so net photosynthesis = gross photosynthesis - respiration.
 }
 \examples{
-#Result: respiration of 0.00942809 g biomass
-respiration(kmprime=0.02, temp=20, liveweight=1, totalweight=1, glucosereq=1.5)
+#Result: Stem length of 20.63898 centimeters
+biomass.to.stemlength.pod(0.1, type=1)
 
-#Result: respiration of 0.004714045 g biomass
-respiration(kmprime=0.02, temp=20, liveweight=1, totalweight=2, glucosereq=1.5)
+#Result: Stem length of 43.11088 centimeters
+biomass.to.stemlength.pod(0.1, type=2)
 
-#Result: respiration of 0.03771236 g biomass
-respiration(kmprime=0.02, temp=30, liveweight=2, totalweight=2, glucosereq=1.5)
+#Result: Stem length of 14.82514 centimeters
+biomass.to.stemlength.pod(0.1, type=3)
+
+#Result: Error message indicating incorrect model specification
+biomass.to.stemlength.pod(0.1, type=7)
+
+#Result: Warning message indicating unrealistic biomass
+#biomass.to.stemlength.pod(1, type=1)
 
 }
 \references{

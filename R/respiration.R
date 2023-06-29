@@ -8,7 +8,7 @@
 #' @param totalweight total (live plus dead) biomass of macrophyte or its relevant organ or tissue.
 #' @param glucosereq glucose requirement for growth. GenVeg, citing Teh (2006) Table 7.4, give values of 1.436 for leaves, 1.513 for stems, and 1.444 for roots.
 #'
-#' @return 
+#' @return daily biomass loss due to maintenance respiration, a positive number.
 #'  
 #' @details 
 #' This function calculates macrophyte biomass losses due to maintenance respiration, and is intended to be used alongside the photosynthesis function to convert gross photosynthetic assimilation to net photosynthetic assimilation.  This function applies to a single plant organ or tissue, but can be looped over different organs or tissues with different metabolic properties.  Positive values of respiration represent biomass lost to respiration, so net photosynthesis = gross photosynthesis - respiration.

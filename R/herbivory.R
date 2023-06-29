@@ -9,7 +9,7 @@
 #' @param V flow velocity in m/s.
 #' @param type an integer between 1 and 3 specifying the numerical form of the herbivory model.
 #'
-#' @return size of macrophyte after herbivory
+#' @return daily macrophyte biomass loss due to herbivory, a positive number.
 #'  
 #' @details 
 #' This function calculates macrophyte size (stem length or biomass) following losses due to herbivory in a 

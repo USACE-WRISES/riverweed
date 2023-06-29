@@ -27,8 +27,9 @@ Relationships here are the inverses of relationships determined by regressing bi
 and the R2 values provided refer to those regressions before inversion.
 The data set included both branched and unbranched stems all of the dark, leafy growth form of Podostemum.
 In all functions, $B_{g}$ denotes ash free dry mass in grams and $L_{cm}$ denotes stem length in
-centimeters. An error message is output for incorrect type specification. A warning message is
-produced for unrealistic biomass, here considered to be above 0.4 g.
+centimeters. An error message is output for incorrect type specification and in the case of
+logical (TRUE/FALSE) inputs.  A warning message is produced for negative biomasses.  A warning
+message is produced for unrealistic biomass, here considered to be above 0.4 g.
 
 Type 1: Linear model including branched and unbranched stems ($R^{2} = 0.727$).
 $L_{cm} = B_{g}/0.0048452$
@@ -49,9 +50,20 @@ Type 6: Power model including branched stems only ($R^{2} = 0.800$).
 $L_{cm} = (B_{g}/0.001903129) ^ (1/1.363027)$
 }
 \examples{
-#Result: 20.63898
+#Result: Stem length of 20.63898 centimeters
 biomass.to.stemlength.pod(0.1, type=1)
 
+#Result: Stem length of 43.11088 centimeters
+biomass.to.stemlength.pod(0.1, type=2)
+
+#Result: Stem length of 14.82514 centimeters
+biomass.to.stemlength.pod(0.1, type=3)
+
+#Result: Error message indicating incorrect model specification
+biomass.to.stemlength.pod(0.1, type=7)
+
+#Result: Warning message indicating unrealistic biomass
+#biomass.to.stemlength.pod(1, type=1)
 
 }
 \references{
