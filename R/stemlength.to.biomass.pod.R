@@ -40,13 +40,28 @@
 #' Rack, Laura. 2022. River Basin Center, University of Georgia. Unpublished data. 
 #' 
 #' @examples
-#' #Result: 0.048452
+#' #Result: Ash free biomass of 0.048452 grams
 #' stemlength.to.biomass.pod(10, type=1)
+#' 
+#' #Result: Ash free biomass of 0.023196 grams
+#' stemlength.to.biomass.pod(10, type=2)
+#' 
+#' #Result: Ash free biomass of 0.067453 grams
+#' stemlength.to.biomass.pod(10, type=3)
+#' 
+#' #Result: Error message indicating incorrect model specification
+#' stemlength.to.biomass.pod(10, type=7)
+#' 
+#' #Result: Warning message indicating unrealistic stem lengths
+#' #stemlength.to.biomass.pod(100, type=1)
 #' 
 #' @export
 stemlength.to.biomass.pod <- function(stem.cm, type){
   #Error handling for invalid model specification
   if(!(type %in% seq(1,6))){stop("Invalid model specification")}
+  
+  #Error handling for logical inputs
+  if(is.logical(stem.cm) || is.logical(type)){stop("Invalid input")}
 
   #Computation of AFDM for all other (realistic) stem lengths
     #Type 1

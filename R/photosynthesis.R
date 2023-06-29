@@ -34,17 +34,26 @@
 #' van Nes, Egbert H; Scheffer, Marten; van den Berg, Marcel S., and Coops, Hugo. 2003. Charisma: a spatial explicit simulation model of submerged macrophytes. Ecological Modelling 159: 103-116. 
 #' 
 #' @examples
-#' #Result: Biomass increment of 1.090909 g
-#' photosynthesis(PAR=c(3000,2000,500), pbiomass=2, Pmax=0.1, daylength=12, 
-#' glucosereq=1.5)
-#' 
-#' #Result: Biomass increment of 0.4061493 g
-#' photosynthesis(PAR=c(3000,2000,500), pbiomass=2, Pmax=0.1, daylength=12, 
-#' glucosereq=1.5, temp=15, N=5, Hn=5)
 #' 
 #' @export
 
 photosynthesis <- function(PAR, pbiomass, Pmax, daylength, glucosereq, Hi, temp, D, Hd, C, Hc, N, Hn){
+  #Error handling for invalid parameter values
+  if(is.logical(PAR) || is.logical(pbiomass) || is.logical(Pmax) || is.logical(daylength) || is.logical(glucosereq) || is.logical(Hi) || is.logical(temp) || is.logical(D) || is.logical(Hd) || is.logical(C) || is.logical(Hc) || is.logical(N) || is.logical(Hn)){stop("Invalid input")}
+  if(any(PAR<0)){stop("PAR cannot be negative")}
+  if(pbiomass<0){stop("Biomass cannot be negative")}
+  if(daylength<0 || daylength>24){stop("Day length must be between 0 and 24 hours")}
+  if(glucosereq<0){stop("Glucose requirement cannot be negative")}
+  if(Hi < 0 || Hd < 0 || Hc < 0 || Hn < 0){stop("Half-saturation constants cannot be negative")}
+  if(D < 0 || C < 0 || N < 0){stop("Limiting factor values cannot be negative")}
+  if(temp < -90 || temp > 60){warning("Specified temperature has not been recorded in nature on Earth")}
+  
+  
+  if(z<0){stop("Depth z cannot be negative")}
+  if(prop.reflect<0 || prop.reflect>1){stop("prop.reflect must be between 0 and 1")}
+  if(K<0 || Kp<0){stop("Light attenuation coefficients cannot be negative")}
+  if(Bz<0){stop("Biomass pools cannot be negative")}
+  
   fgross <- rep(NA,3) #Empty vector for intermediate outputs
   dtga <- rep(NA,3) #Empty vector for intermediate outputs
   wgauss <- c(0.2778, 0.4444, 0.2778) #Weights for Gaussian integration

@@ -26,7 +26,9 @@
 #' 
 #' For Podostemum, Wood et al. (2019) estimated a relative growth rate of 0.026 cm/cm/day (95% credible
 #' interval 0.013-0.039 cm/cm/day) in the absence of herbivory. We estimate maximum reasonable sizes of 
-#' 50 cm or 0.4 g ash-free dry mass based on Rack (2022). 
+#' 50 cm or 0.4 g ash-free dry mass based on Rack (2022). Note that max.size is given a default value 
+#' of 1e6 so that simulating exponential growth (type=1) does not require specifying a maximum size 
+#' for most reasonable biomass values. 
 #' 
 #' @references
 #' Krebs CJ. 2009. Ecology: The experimental analysis of distribution and abundance, 6th edition. Boston, MA: 
@@ -47,17 +49,26 @@
 #' growth.empirical(30, 0.05, max.size=50, type=2)
 #' 
 #' @export
-growth.empirical <- function(old.size, growth.rate, max.size, type){
+growth.empirical <- function(old.size, growth.rate, max.size=1e6, type){
+  
+  #Error handling for invalid model specification
+  if(!(type %in% seq(1,2))){stop("Invalid model specification")}
+  
+  #Error handling for invalid inputs
+  if(old.size < 0 || max.size < 0){stop("Macrophyte size cannot be negative")}
+  if(old.size > max.size){stop("old.size cannot exceed max.size")}
+  if(growth.rate < 0){stop("Growth rate cannot be negative")}
+  if(is.logical(old.size) || is.logical(growth.rate) || is.logical(max.size) || 
+     is.logical(type)){stop("Invalid input")}
+  
+  
   #Type 1: Exponential growth
   if(type == 1){change.size <- growth.rate * old.size}
   
   #Type 2: Logistic growth
   else if(type == 2){change.size <- growth.rate * ((max.size-old.size)/max.size) * old.size}
   
-  #Compute new biomass from change and old biomass
-  new.size <- old.size + change.size
-  
-  #Send output
-  return(new.size)
+  #Return size increment
+  return(change.size)
 }
 

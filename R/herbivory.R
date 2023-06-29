@@ -54,10 +54,14 @@
 #' 
 #' @export
 herbivory <- function(old.size, H, Vlow, Vhigh, V, type){
-  #Error handling for invalid model specification
+  #Error handling for invalid inputs
   if(!(type %in% seq(1,3))){stop("Invalid model specification")}
-  else if(H<0 | H>1){stop("H not between 0 and 1")}
-
+  if(H<0 | H>1){stop("H must be between 0 and 1")}
+  if(is.logical(old.size) || is.logical(H) || is.logical(Vlow) || is.logical(Vhigh) || is.logical(V) || is.logical(type)){stop("Invalid input")}
+  if(old.size < 0){stop("Macrophyte size cannot be negative")}
+  if(Vlow < 0 || Vhigh < 0 || V < 0){stop("Velocity cannot be negative")}
+  if(Vlow > Vhigh){stop("Vlow must be less than or equal to Vhigh")}
+  
   #Computation of size (e.g. biomass) lost to herbivory
     #Type 1: lose constant proportion of size
     else if(type == 1){herb.loss <- rep(H, length.out=length(V))}
@@ -69,9 +73,6 @@ herbivory <- function(old.size, H, Vlow, Vhigh, V, type){
     else if(type == 3){herb.loss <- ifelse(V < Vlow, H,
                                            ifelse(V < Vhigh, (H/(Vlow-Vhigh))*V-(H*Vhigh/(Vlow-Vhigh)), 0))}
   
-  #Compute change in biomass from proportional change
-    new.size <- old.size * (1-herb.loss)
-
-  #Send output
-  return(new.size)
+  #Return size increment (a positive number).
+  return(herb.loss)
 }

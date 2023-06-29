@@ -20,15 +20,28 @@
 #' Astro?
 #' 
 #' @examples
-#' #Result: Vector of c(2879.4155, 1882.2661, 382.6393) microEinsteins of PAR
-#' light(120, 25)
+#' #Result: Stem length of 20.63898 centimeters
+#' biomass.to.stemlength.pod(0.1, type=1)
 #' 
-#' #Result: Vector of c(2940.5729, 1942.6421, 403.0639) microEinsteins of PAR
-#' light(250, 5)
+#' #Result: Stem length of 43.11088 centimeters
+#' biomass.to.stemlength.pod(0.1, type=2)
+#' 
+#' #Result: Stem length of 14.82514 centimeters
+#' biomass.to.stemlength.pod(0.1, type=3)
+#' 
+#' #Result: Error message indicating incorrect model specification
+#' biomass.to.stemlength.pod(0.1, type=7)
+#' 
+#' #Result: Warning message indicating unrealistic biomass
+#' #biomass.to.stemlength.pod(1, type=1)
 #' 
 #' @export
 
 light <- function(day, lat){
+  #Error handling for invalid inputs
+  if(is.logical(day) || is.logical(lat)){stop("Invalid input")}
+  #Error handling for nonexistent latitudes
+  if(abs(lat)>90){stop("Latitude must be between -90 and 90 degrees")}
   
   tmpvec <- c()
   degree.to.rad <- pi/180 #LD addition
@@ -40,6 +53,7 @@ light <- function(day, lat){
   cosld <- cos(lat * degree.to.rad) * cos(declination) #radians
   
   aob <- (sinld / cosld)  #radians
+  #print(c("aob", aob))
   
   temp1 <- asin(aob)
   
@@ -77,6 +91,7 @@ light <- function(day, lat){
     #print (tmpvec)
     
   }
+  if((day %in% seq(1,365))==FALSE){warning("day is not a whole number between 1 and 365")} #produces a warning for values of day outside of 1:365.
   
   return(tmpvec) #returns a vector of PAR values in MicroEinsteins
   

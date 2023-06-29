@@ -13,7 +13,7 @@
 #' @return a vector of three PAR values in microEinsteins, corresponding to light available to macrophyte leaves at three representive times of day, roughly midday, morning/afternoon, and dawn/dusk.
 #'  
 #' @details 
-#' Given photosynthetically active radiation (PAR) available at the water surface, attenuate calculates PAR at any water depth, including losses of PAR due to reflection off the water surface, attenuation in the water column, and optional self-shading by macrophytes.  Default values are taken from GenVeg (NetLogo version, photosynthesis function), who cite (http://www.lakeaccess.org/ecology/lakeecologyprim3.html) for the light attenuation coefficient K, and (http://www.esf.edu/efb/schulz/Limnology/Light.html) for the equation without self-shading.
+#' Given photosynthetically active radiation (PAR) available at the water surface, attenuate calculates PAR at any water depth, including losses of PAR due to reflection off the water surface, attenuation in the water column, and optional self-shading by macrophytes.  Default values are taken from GenVeg (NetLogo version, photosynthesis function), who cite (http://www.lakeaccess.org/ecology/lakeecologyprim3.html) for the light attenuation coefficient K, and (http://www.esf.edu/efb/schulz/Limnology/Light.html) for the equation without self-shading.  Kp and Bz are given default values of zero so that they do not need to be specified when selfshading=F.  As a result, setting selfshading=T will not affect the result of attenuate unless nonzero (positive) values of Kp and Bz are specified.
 #' 
 #' 
 #' 
@@ -25,20 +25,42 @@
 #' http://www.esf.edu/efb/schulz/Limnology/Light.html
 #' 
 #' @examples
-#' #Result: Vector of c(2394.6852, 1596.4568, 399.1142) microEinsteins of PAR
-#' attenuate(PAR=c(3000,2000,500), z=1, prop.reflect=0.1, K=0.12, selfshading=FALSE)
+#' #Result: Stem length of 20.63898 centimeters
+#' biomass.to.stemlength.pod(0.1, type=1)
 #' 
-#' #Result: Vector of c(2255.2296, 1503.4864, 375.8716) microEinsteins of PAR
-#' attenuate(PAR=c(3000,2000,500), z=1, prop.reflect=0.1, K=0.12, Kp=0.2, Bz=0.3, selfshading=TRUE)
+#' #Result: Stem length of 43.11088 centimeters
+#' biomass.to.stemlength.pod(0.1, type=2)
 #' 
+#' #Result: Stem length of 14.82514 centimeters
+#' biomass.to.stemlength.pod(0.1, type=3)
+#' 
+#' #Result: Error message indicating incorrect model specification
+#' biomass.to.stemlength.pod(0.1, type=7)
+#' 
+#' #Result: Warning message indicating unrealistic biomass
+#' #biomass.to.stemlength.pod(1, type=1)
 #' 
 #' @export
 
-attenuate <- function(PAR, z, prop.reflect, K, Kp, Bz, selfshading){
+attenuate <- function(PAR, z, prop.reflect, K, Kp=0, Bz=0, selfshading){
+  
+  #Error handling for invalid parameter values
+  if(is.logical(PAR) || is.logical(z) || is.logical(prop.reflect) || is.logical(K) || is.logical(Kp) || is.logical(Bz)){stop("Invalid input")}
+  if(any(PAR<0)){stop("PAR cannot be negative")}
+  if(z<0){stop("Depth z cannot be negative")}
+  if(prop.reflect<0 || prop.reflect>1){stop("prop.reflect must be between 0 and 1")}
+  if(K<0 || Kp<0){stop("Light attenuation coefficients cannot be negative")}
+  if(Bz<0){stop("Biomass pools cannot be negative")}
+  
   if(selfshading==TRUE){
   Iz <- ((1 - prop.reflect) * PAR) * exp(-K*z - Kp*Bz)
   } else {
     Iz <- ((1 - prop.reflect) * PAR) * exp(-K*z)
   }
+
+  
+  
 return(Iz)
+  
+  
   }

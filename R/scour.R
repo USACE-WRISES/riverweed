@@ -49,7 +49,11 @@
 scour <- function(old.size, size.min, S, Vlow, Vhigh, V, type){
   #Error handling for invalid model specification
   if(!(type %in% seq(1,3))){stop("Invalid model specification")}
-  else if(S < 0 | S > 1){stop("S not between 0 and 1")}
+  if(S < 0 | S > 1){stop("S must be between 0 and 1")}
+  if(is.logical(old.size) || is.logical(S) || is.logical(Vlow) || is.logical(Vhigh) || is.logical(V) || is.logical(type)){stop("Invalid input")}
+  if(old.size < 0 || size.min < 0){stop("Macrophyte size cannot be negative")}
+  if(Vlow < 0 || Vhigh < 0 || V < 0){stop("Velocity cannot be negative")}
+  if(Vlow > Vhigh){stop("Vlow must be less than or equal to Vhigh")}
   
   #Computation of size (e.g. biomass) lost to scour
   #Type 1: lose constant proportion of size
@@ -62,9 +66,6 @@ scour <- function(old.size, size.min, S, Vlow, Vhigh, V, type){
   else if(type == 3){scour.loss <- ifelse(V < Vlow, 0,
                                           ifelse(V < Vhigh, (S/(Vhigh-Vlow))*V+(S*Vlow/(Vlow-Vhigh)), S))}
   
-  #Compute change in biomass from proportional change
-  new.size <- old.size * (1-scour.loss)
-  
-  #Send output
-  return(new.size)
+  #Return size increment (a positive number).
+  return(scour.loss)
 }

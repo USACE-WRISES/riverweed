@@ -11,7 +11,8 @@
 #' This function removes stem length in excess of a user-defined physiological maximum, returning 
 #' unrealistically high stem lengths to their maximum allowed value. Parameterization is based on
 #' observations that most Podostemum stems are less than 20 cm long (Hammond 1937), and we rarely 
-#' observe stems longer than ~30 cm. 
+#' observe stems longer than ~30 cm. This function could also be applied to biomass, in which case a 
+#' reasonable upper limit for a single stem is ~0.4 g ash-free dry mass.
 #' 
 #' #' @references
 #' Hammond, Bayard L. 1937. Development of Podostemon ceratophyllum. Bulletin of the Torrey Botanical 
@@ -29,9 +30,14 @@
 #' 
 #' @export
 breakage <- function(stem.cm, max.stem.cm){
-  #Compute the minimum of the two inputs
-  stem.out <- ifelse(stem.cm <= max.stem.cm, stem.cm, max.stem.cm)
-
+  #Error handling for invalid inputs
+  if(stem.cm < 0 || max.stem.cm < 0){stop("Stem length cannot be negative")}
+  if(is.logical(stem.cm) || is.logical(max.stem.cm)){stop("Invalid input")}
+  
+  
+  #If current stem length is less than or equal to max stem length, set loss increment to zero; otherwise reduce current stem length to max stem length (loss increment is amount broken off to reach max allowed stem length).
+  stem.out <- ifelse(stem.cm <= max.stem.cm, 0, stem.cm-max.stem.cm)
+  
   #Send output
   return(stem.out)
-}
+} #End fxn call
