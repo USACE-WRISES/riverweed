@@ -50,20 +50,15 @@ Type 6: Power model including branched stems only ($R^{2} = 0.800$).
 $L_{cm} = (B_{g}/0.001903129) ^ (1/1.363027)$
 }
 \examples{
-#Result: Stem length of 20.63898 centimeters
+#Result: 20.63898
 biomass.to.stemlength.pod(0.1, type=1)
 
-#Result: Stem length of 43.11088 centimeters
+#Result: 43.11088
 biomass.to.stemlength.pod(0.1, type=2)
 
-#Result: Stem length of 14.82514 centimeters
+#Result: 14.82514
 biomass.to.stemlength.pod(0.1, type=3)
 
-#Result: Error message indicating incorrect model specification
-biomass.to.stemlength.pod(0.1, type=7)
-
-#Result: Warning message indicating unrealistic biomass
-#biomass.to.stemlength.pod(1, type=1)
 
 }
 \references{

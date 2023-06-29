@@ -29,13 +29,10 @@ Hammond, Bayard L. 1937. Development of Podostemon ceratophyllum. Bulletin of th
 Club 64(1): 17-36.
 }
 \examples{
-#Result: 20 cm
+#Result: 0
 breakage(20, 50)
 
-#Result: 50 cm
+#Result: 20
 breakage(70, 50)
-
-#Result: vector of values with max of 50 cm
-breakage(seq(10,100,10), 50)
 
 }
