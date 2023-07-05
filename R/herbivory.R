@@ -34,22 +34,22 @@
 #'  DOI: 10.1111/fwb.13393.
 #' 
 #' @examples
-#' #Result: Stem length of 18 cm
+#' #Result: 2
 #' herbivory(20, H=0.1, Vlow=0.5, Vhigh=2.5, V=1, type=1)
 #' 
-#' #Result: Ash-free dry mass of 0.1 g
+#' #Result: 0.1
 #' herbivory(0.2, H=0.5, Vlow=0.5, Vhigh=2.5, V=1.0, type=2)
 #' 
-#' #Result: Ash-free dry mass of 0.2 g
+#' #Result: 0
 #' herbivory(0.2, H=0.5, Vlow=0.5, Vhigh=2.5, V=2.7, type=2)
 #' 
-#' #Result: Stem length of 14 cm
+#' #Result: 6
 #' herbivory(20, H=0.3, Vlow=0.5, Vhigh=2.5, V=0.2, type=3)
 #' 
-#' #Result: Stem length of 15.8 cm
+#' #Result: 4.2
 #' herbivory(20, H=0.3, Vlow=0.5, Vhigh=2.5, V=1.1, type=3)
 #' 
-#' #Result: Stem length of 20 cm
+#' #Result: 0
 #' herbivory(20, H=0.3, Vlow=0.5, Vhigh=2.5, V=2.6, type=3)
 #' 
 #' @export
@@ -64,14 +64,14 @@ herbivory <- function(old.size, H, Vlow, Vhigh, V, type){
   
   #Computation of size (e.g. biomass) lost to herbivory
     #Type 1: lose constant proportion of size
-    else if(type == 1){herb.loss <- rep(H, length.out=length(V))}
+    else if(type == 1){herb.loss <- H * old.size}
   
     #Type 2: lose constant proportion of size when velocity below threshold, otherwise no herbivory
-    else if(type == 2){herb.loss <- ifelse(V < Vhigh, H, 0)}
+    else if(type == 2){herb.loss <- ifelse(V < Vhigh, H * old.size, 0)}
 
     #Type 3: proportion of size lost declines linearly with velocity
-    else if(type == 3){herb.loss <- ifelse(V < Vlow, H,
-                                           ifelse(V < Vhigh, (H/(Vlow-Vhigh))*V-(H*Vhigh/(Vlow-Vhigh)), 0))}
+    else if(type == 3){herb.loss <- ifelse(V < Vlow, H * old.size,
+                                           ifelse(V < Vhigh, ((H/(Vlow-Vhigh))*V-(H*Vhigh/(Vlow-Vhigh))) * old.size, 0))}
   
   #Return size increment (a positive number).
   return(herb.loss)

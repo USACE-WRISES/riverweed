@@ -27,22 +27,22 @@
 #'  DOI: 10.1111/fwb.13393.
 #' 
 #' @examples
-#' #Result: Stem length of 5 cm
+#' #Result: 5
 #' scour(old.size=10, size.min=2, S=0.5, Vlow=2.0, Vhigh=3.5, V=2.5, type=1)
 #' 
-#' #Result: Ash-free dry mass of 0.8 g
+#' #Result: 0
 #' scour(old.size=0.8, size.min=2, S=0.5, Vlow=2.0, Vhigh=3.5, V=2.5, type=2)
 #' 
-#' #Result: Ash-free dry mass of 0.4 g
+#' #Result: 0.4
 #' scour(old.size=0.8, size.min=2, S=0.5, Vlow=2.0, Vhigh=3.5, V=3.6, type=2)
 #' 
-#' #Result: Stem length of 10 cm
+#' #Result: 0
 #' scour(old.size=10, size.min=2, S=0.6, Vlow=2.0, Vhigh=3.5, V=1, type=3)
 #' 
-#' #Result: Stem length of 8 cm
+#' #Result: 2
 #' scour(old.size=10, size.min=2, S=0.6, Vlow=2.0, Vhigh=3.5, V=2.5, type=3)
 #' 
-#' #Result: Stem length of 4 cm
+#' #Result: 6
 #' scour(old.size=10, size.min=2, S=0.6, Vlow=2.0, Vhigh=3.5, V=3.6, type=3)
 #' 
 #' @export
@@ -57,14 +57,14 @@ scour <- function(old.size, size.min, S, Vlow, Vhigh, V, type){
   
   #Computation of size (e.g. biomass) lost to scour
   #Type 1: lose constant proportion of size
-  else if(type == 1){scour.loss <- rep(S, length.out=length(V))}
+  else if(type == 1){scour.loss <- S * old.size}
   
   #Type 2: lose constant proportion of size when velocity above threshold, otherwise no herbivory
-  else if(type == 2){scour.loss <- ifelse(V > Vhigh, S, 0)}
+  else if(type == 2){scour.loss <- ifelse(V > Vhigh, S * old.size, 0)}
   
   #Type 3: step function: lose no biomass when V < Vlow, lose maximum proportion of biomass when V > Vhigh, and transition linearly between them.
   else if(type == 3){scour.loss <- ifelse(V < Vlow, 0,
-                                          ifelse(V < Vhigh, (S/(Vhigh-Vlow))*V+(S*Vlow/(Vlow-Vhigh)), S))}
+                                          ifelse(V < Vhigh, ((S/(Vhigh-Vlow))*V+(S*Vlow/(Vlow-Vhigh))) * old.size, S * old.size))}
   
   #Return size increment (a positive number).
   return(scour.loss)

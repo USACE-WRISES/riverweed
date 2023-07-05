@@ -11,8 +11,8 @@
 #' @return daily biomass loss due to maintenance respiration, a positive number.
 #'  
 #' @details 
-#' This function calculates macrophyte biomass losses due to maintenance respiration, and is intended to be used alongside the photosynthesis function to convert gross photosynthetic assimilation to net photosynthetic assimilation.  This function applies to a single plant organ or tissue, but can be looped over different organs or tissues with different metabolic properties.  Positive values of respiration represent biomass lost to respiration, so net photosynthesis = gross photosynthesis - respiration.
-#' 
+#' This function calculates macrophyte biomass losses due to maintenance respiration, and is intended to be used alongside the photosynthesis function to convert gross photosynthetic assimilation to net photosynthetic assimilation.  This function applies to a single plant organ or tissue, but can be looped over different organs or tissues with different metabolic properties.  Positive values of respiration represent biomass lost to respiration, so net photosynthesis = gross photosynthesis - respiration.  
+#' Inclusion of standing dead biomass via the totalweight argument is carried over from GenVeg, where standing dead biomass was used as a proxy of plant age, and maintenance respiration assumed to decrease in older plants.  The effects of standing dead biomass in other circumstances should be considered with caution.
 #' 
 #' 
 
@@ -23,20 +23,14 @@
 #' 
 #' 
 #' @examples
-#' #Result: Stem length of 20.63898 centimeters
-#' biomass.to.stemlength.pod(0.1, type=1)
+#' #Result: 0.015
+#' respiration(kmprime=0.0225, temp=15, liveweight=2, totalweight=2, glucosereq=1.5)
 #' 
-#' #Result: Stem length of 43.11088 centimeters
-#' biomass.to.stemlength.pod(0.1, type=2)
+#' #Result: 0.01
+#' respiration(kmprime=0.0225, temp=15, liveweight=2, totalweight=3, glucosereq=1.5)
 #' 
-#' #Result: Stem length of 14.82514 centimeters
-#' biomass.to.stemlength.pod(0.1, type=3)
-#' 
-#' #Result: Error message indicating incorrect model specification
-#' biomass.to.stemlength.pod(0.1, type=7)
-#' 
-#' #Result: Warning message indicating unrealistic biomass
-#' #biomass.to.stemlength.pod(1, type=1)
+#' #Result: 0.02222222
+#' respiration(kmprime=0.05, temp=15, liveweight=2, totalweight=3, glucosereq=1.5)
 #' 
 #' @export
 respiration <- function(kmprime, temp, liveweight, totalweight, glucosereq){

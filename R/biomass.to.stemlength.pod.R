@@ -52,7 +52,6 @@
 #' #Result: 14.82514
 #' biomass.to.stemlength.pod(0.1, type=3)
 #' 
-#' 
 #' @export
 biomass.to.stemlength.pod <- function(afdm.g, type){
   #Error handling for invalid model specification

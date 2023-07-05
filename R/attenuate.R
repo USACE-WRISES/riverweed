@@ -25,7 +25,7 @@
 #' http://www.esf.edu/efb/schulz/Limnology/Light.html
 #' 
 #' @examples
-#' #Result: Iz of c(2377.8620, 1585.2413, 396.3103) microEinsteins
+#' Result: 2377.8620 1585.2413  396.3103
 #' attenuate(PAR=c(3000, 2000, 500), z=1, prop.reflect=0.1, K=0.12, Kp=0.0235, Bz=0.3, selfshading=TRUE)
 #' 
 #' @export

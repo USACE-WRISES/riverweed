@@ -33,12 +33,15 @@
 #' van Nes, Egbert H; Scheffer, Marten; van den Berg, Marcel S., and Coops, Hugo. 2003. Charisma: a spatial explicit simulation model of submerged macrophytes. Ecological Modelling 159: 103-116. 
 #' 
 #' @examples
-#' #Result: biomass gain of 0.9980636 g
-#' photosynthesis(PAR=c(3000, 2000, 500), pbiomass=1, Pmax=0.2, daylength=13, glucosereq=1.5, Hi=30, temp=17)
+#' #Result: 0.8122985
+#' photosynthesis(PAR=c(2500, 1800, 500), pbiomass=1, Pmax=0.2, daylength=12, glucosereq=1.5, temp=15)
+#' 
+#' #Result: 0.1365957
+#' photosynthesis(PAR=c(2500, 1800, 500), pbiomass=1, Pmax=0.2, daylength=12, glucosereq=1.5, temp=15, Hi=2000, N=20, Hn=30)
 #' 
 #' @export
 
-photosynthesis <- function(PAR, pbiomass, Pmax, daylength, glucosereq, Hi=0, temp, D=1, Hd=0, C=1, Hc=0, N=1, Hn=0){
+photosynthesis <- function(PAR, pbiomass, Pmax, daylength, glucosereq, temp, Hi=0, D=1, Hd=0, C=1, Hc=0, N=1, Hn=0){
   #Error handling for invalid parameter values
   if(is.logical(PAR) || is.logical(pbiomass) || is.logical(Pmax) || is.logical(daylength) || is.logical(glucosereq) || is.logical(Hi) || is.logical(temp) || is.logical(D) || is.logical(Hd) || is.logical(C) || is.logical(Hc) || is.logical(N) || is.logical(Hn)){stop("Invalid input")}
   if(any(PAR<0)){stop("PAR cannot be negative")}
@@ -48,6 +51,7 @@ photosynthesis <- function(PAR, pbiomass, Pmax, daylength, glucosereq, Hi=0, tem
   if(Hi < 0 || Hd < 0 || Hc < 0 || Hn < 0){stop("Half-saturation constants cannot be negative")}
   if(D < 0 || C < 0 || N < 0){stop("Limiting factor values cannot be negative")}
   if(temp < -90 || temp > 60){warning("Specified temperature has not been recorded in nature on Earth")}
+  
   
   fgross <- rep(NA,3) #Empty vector for intermediate outputs
   dtga <- rep(NA,3) #Empty vector for intermediate outputs
@@ -71,13 +75,13 @@ photosynthesis <- function(PAR, pbiomass, Pmax, daylength, glucosereq, Hi=0, tem
     #print(c("light.monod", light.monod))
 
     #Hill function for temperature, from Charisma via GenVeg
-    temp.hill <- ifelse(missing(temp), 1, ((1.35 * temp^3) / (temp^3 + 14^3)))
+    temp.hill <- ((1.35 * temp^3) / (temp^3 + 14^3))
     #Monod function for depth, from Charisma via GenVeg
-    depth.monod <- ifelse(missing(D) | missing(Hd), 1, (D / (Hd + D)))
+    depth.monod <- (D / (Hd + D))
     #Monod function for carbonate, from GenVeg
-    carbonate.monod <- ifelse(missing(C) | missing(Hc), 1, (C / (Hc + C)))
+    carbonate.monod <- (C / (Hc + C))
     #Monod function for a limiting nutrient, after GenVeg
-    nutrient.monod <- ifelse(missing(N) | missing(Hn), 1, (N / (Hn + N)))
+    nutrient.monod <- (N / (Hn + N))
     
     #Calculate photosynthetic assimilation in grams of glucose
     P <- Pmax * light.monod * temp.hill * depth.monod * carbonate.monod * nutrient.monod

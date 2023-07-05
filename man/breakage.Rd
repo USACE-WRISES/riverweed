@@ -12,7 +12,7 @@ breakage(stem.cm, max.stem.cm)
 \item{max.stem.cm}{physiological maximum of stem length in cm.}
 }
 \value{
-daily macrophyte loss due to breakage, a positive number.
+size of macrophyte after breakage as stem length in cm.
 }
 \description{
 \code{breakage} removes stem length for physiologically unrealistic stem length
@@ -34,5 +34,6 @@ breakage(20, 50)
 
 #Result: 20
 breakage(70, 50)
+
 
 }

@@ -59,7 +59,6 @@ biomass.to.stemlength.pod(0.1, type=2)
 #Result: 14.82514
 biomass.to.stemlength.pod(0.1, type=3)
 
-
 }
 \references{
 Rack, Laura. 2022. River Basin Center, University of Georgia. Unpublished data.

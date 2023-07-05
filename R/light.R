@@ -20,20 +20,8 @@
 #' Astro?
 #' 
 #' @examples
-#' #Result: Stem length of 20.63898 centimeters
-#' biomass.to.stemlength.pod(0.1, type=1)
-#' 
-#' #Result: Stem length of 43.11088 centimeters
-#' biomass.to.stemlength.pod(0.1, type=2)
-#' 
-#' #Result: Stem length of 14.82514 centimeters
-#' biomass.to.stemlength.pod(0.1, type=3)
-#' 
-#' #Result: Error message indicating incorrect model specification
-#' biomass.to.stemlength.pod(0.1, type=7)
-#' 
-#' #Result: Warning message indicating unrealistic biomass
-#' #biomass.to.stemlength.pod(1, type=1)
+#' #Result: 2879.4155 1882.2661  382.6393
+#' light(120,25)
 #' 
 #' @export
 

@@ -20,7 +20,7 @@ herbivory(old.size, H, Vlow, Vhigh, V, type)
 \item{type}{an integer between 1 and 3 specifying the numerical form of the herbivory model.}
 }
 \value{
-daily macrophyte biomass loss due to herbivory, a positive number.
+size of macrophyte after herbivory
 }
 \description{
 \code{herbivory} calculates the size of a macrophyte after losses due to herbivory.
@@ -43,22 +43,22 @@ Type 3: Herbivory is described by a step function, starting at its maximum rate 
 than Vlow, and declining linearly to reach zero when velocity reaches Vhigh.
 }
 \examples{
-#Result: Stem length of 18 cm
+#Result: 2
 herbivory(20, H=0.1, Vlow=0.5, Vhigh=2.5, V=1, type=1)
 
-#Result: Ash-free dry mass of 0.1 g
+#Result: 0.1
 herbivory(0.2, H=0.5, Vlow=0.5, Vhigh=2.5, V=1.0, type=2)
 
-#Result: Ash-free dry mass of 0.2 g
+#Result: 0
 herbivory(0.2, H=0.5, Vlow=0.5, Vhigh=2.5, V=2.7, type=2)
 
-#Result: Stem length of 14 cm
+#Result: 6
 herbivory(20, H=0.3, Vlow=0.5, Vhigh=2.5, V=0.2, type=3)
 
-#Result: Stem length of 15.8 cm
+#Result: 4.2
 herbivory(20, H=0.3, Vlow=0.5, Vhigh=2.5, V=1.1, type=3)
 
-#Result: Stem length of 20 cm
+#Result: 0
 herbivory(20, H=0.3, Vlow=0.5, Vhigh=2.5, V=2.6, type=3)
 
 }

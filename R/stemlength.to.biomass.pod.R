@@ -40,20 +40,14 @@
 #' Rack, Laura. 2022. River Basin Center, University of Georgia. Unpublished data. 
 #' 
 #' @examples
-#' #Result: Ash free biomass of 0.048452 grams
+#' #Result: 0.048452
 #' stemlength.to.biomass.pod(10, type=1)
 #' 
-#' #Result: Ash free biomass of 0.023196 grams
+#' #Result: 0.023196
 #' stemlength.to.biomass.pod(10, type=2)
 #' 
-#' #Result: Ash free biomass of 0.067453 grams
+#' #Result: 0.067453
 #' stemlength.to.biomass.pod(10, type=3)
-#' 
-#' #Result: Error message indicating incorrect model specification
-#' stemlength.to.biomass.pod(10, type=7)
-#' 
-#' #Result: Warning message indicating unrealistic stem lengths
-#' #stemlength.to.biomass.pod(100, type=1)
 #' 
 #' @export
 stemlength.to.biomass.pod <- function(stem.cm, type){

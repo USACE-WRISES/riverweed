@@ -39,26 +39,30 @@
 #' 64(11): 2037-2045. DOI: 10.1111/fwb.13393
 #' 
 #' @examples
-#' #Result: stem length of 10.5 cm
+#' #Result: 0.5
 #' growth.empirical(10, 0.05, max.size=NA, type=1)
 #' 
-#' #Result: stem length of 31.5 cm
+#' #Result: 0.5
+#' growth.empirical(10, 0.05, type=1)
+#' 
+#' #Result: 1.5
 #' growth.empirical(30, 0.05, max.size=50, type=1)
 #' 
-#' #Result: stem length of 30.6 cm
+#' #Result: 0.6
 #' growth.empirical(30, 0.05, max.size=50, type=2)
 #' 
 #' @export
-growth.empirical <- function(old.size, growth.rate, max.size=1e6, type){
+growth.empirical <- function(old.size, growth.rate, max.size=1000000, type){
   
   #Error handling for invalid model specification
   if(!(type %in% seq(1,2))){stop("Invalid model specification")}
   
   #Error handling for invalid inputs
-  if(old.size < 0 || max.size < 0){stop("Macrophyte size cannot be negative")}
-  if(old.size > max.size){stop("old.size cannot exceed max.size")}
+  if(old.size < 0){stop("Macrophyte size cannot be negative")}
+  if(type==2){if(max.size < 0){stop("Macrophyte size cannot be negative")}}
+  if(type==2){if(old.size > max.size){stop("old.size cannot exceed max.size")}}
   if(growth.rate < 0){stop("Growth rate cannot be negative")}
-  if(is.logical(old.size) || is.logical(growth.rate) || is.logical(max.size) || 
+  if(is.logical(old.size) || is.logical(growth.rate) || isTRUE(max.size) || isFALSE(max.size) || 
      is.logical(type)){stop("Invalid input")}
   
   

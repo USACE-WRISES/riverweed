@@ -25,6 +25,7 @@
 #' #Result: 20
 #' breakage(70, 50)
 #' 
+#' 
 #' @export
 breakage <- function(stem.cm, max.stem.cm){
   #Error handling for invalid inputs
