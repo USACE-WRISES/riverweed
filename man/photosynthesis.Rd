@@ -57,11 +57,13 @@ daily biomass gain due to gross photosynthetic assimilation.
 This function calculates gross photosynthetic assimilation in units of macrophyte biomass given light availability, plant height, river depth, and several plant parameters.  It is designed for use with the light, daylength, and attenuate functions to calculate light availability for photosynthesis.  It is designed to be used alongside the respiration function (which calculates maintenance respiration) to calculate net photosynthetic biomass assimilation.  This function assumes Michaelis-Menten or Monod dynamics for light, carbonate, and nutrient assimilation, as well as depth, following the Charisma model (van Nes et al. 2003). Temperature is assumed to limit photosynthesis by a Hill function.  This function applies to a single plant organ or tissue, but can be looped over different organs or tissues with different photosynthetic properties.
 }
 \examples{
-#Result: 0.8122985
-photosynthesis(PAR=c(2500, 1800, 500), pbiomass=1, Pmax=0.2, daylength=12, glucosereq=1.5, temp=15)
+#Result: macrophyte biomass gain of 0.8122985 g
+photosynthesis(PAR=c(2500, 1800, 500), pbiomass=1, Pmax=0.2, daylength=12, 
+glucosereq=1.5, temp=15)
 
-#Result: 0.1365957
-photosynthesis(PAR=c(2500, 1800, 500), pbiomass=1, Pmax=0.2, daylength=12, glucosereq=1.5, temp=15, Hi=2000, N=20, Hn=30)
+#Result: macrophyte biomass gain of 0.1365957 g
+photosynthesis(PAR=c(2500, 1800, 500), pbiomass=1, Pmax=0.2, daylength=12, 
+glucosereq=1.5, temp=15, Hi=2000, N=20, Hn=30)
 
 }
 \references{

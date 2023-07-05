@@ -34,22 +34,22 @@
 #'  DOI: 10.1111/fwb.13393.
 #' 
 #' @examples
-#' #Result: 2
+#' #Result: macrophyte biomass loss of 2 g
 #' herbivory(20, H=0.1, Vlow=0.5, Vhigh=2.5, V=1, type=1)
 #' 
-#' #Result: 0.1
+#' #Result: macrophyte biomass loss of 0.1 g
 #' herbivory(0.2, H=0.5, Vlow=0.5, Vhigh=2.5, V=1.0, type=2)
 #' 
-#' #Result: 0
+#' #Result: macrophyte biomass loss of 0 g
 #' herbivory(0.2, H=0.5, Vlow=0.5, Vhigh=2.5, V=2.7, type=2)
 #' 
-#' #Result: 6
+#' #Result: macrophyte biomass loss of 6 g
 #' herbivory(20, H=0.3, Vlow=0.5, Vhigh=2.5, V=0.2, type=3)
 #' 
-#' #Result: 4.2
+#' #Result: macrophyte biomass loss of 4.2 g
 #' herbivory(20, H=0.3, Vlow=0.5, Vhigh=2.5, V=1.1, type=3)
 #' 
-#' #Result: 0
+#' #Result: macrophyte biomass loss of 0 g
 #' herbivory(20, H=0.3, Vlow=0.5, Vhigh=2.5, V=2.6, type=3)
 #' 
 #' @export

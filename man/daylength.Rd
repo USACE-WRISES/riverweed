@@ -21,10 +21,10 @@ daylength, the number of hours between sunrise and sunset.
 Given Julian day and latitude, this function calculates day length in hours following GenVeg (CITE, plus their sources).
 }
 \examples{
-#Result: 12.90703
+#Result: day length of 12.90703 hours
 daylength(120,25)
 
-#Result: 11.74682
+#Result: day length of 11.74682 hours
 daylength(200,-5)
 
 }

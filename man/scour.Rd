@@ -22,7 +22,7 @@ scour(old.size, size.min, S, Vlow, Vhigh, V, type)
 \item{type}{an integer between 1 and 3 specifying the numerical form of the scour model.}
 }
 \value{
-size of macrophyte after scour
+daily macrophyte biomass loss due to scour, a positive number.
 }
 \description{
 \code{scour} calculates the size of a macrophyte after losses due to scour.
@@ -37,22 +37,22 @@ is the flow velocity (in m/s) above which scour is at its maximum rate S, and V 
 the current time step, in m/s. All measures of macrophyte size must use the same units.
 }
 \examples{
-#Result: 5
+#Result: macrophyte biomass loss of 5 g
 scour(old.size=10, size.min=2, S=0.5, Vlow=2.0, Vhigh=3.5, V=2.5, type=1)
 
-#Result: 0
+#Result: macrophyte biomass loss of 0 g
 scour(old.size=0.8, size.min=2, S=0.5, Vlow=2.0, Vhigh=3.5, V=2.5, type=2)
 
-#Result: 0.4
+#Result: macrophyte biomass loss of 0.4 g
 scour(old.size=0.8, size.min=2, S=0.5, Vlow=2.0, Vhigh=3.5, V=3.6, type=2)
 
-#Result: 0
+#Result: macrophyte biomass loss of 0 g
 scour(old.size=10, size.min=2, S=0.6, Vlow=2.0, Vhigh=3.5, V=1, type=3)
 
-#Result: 2
+#Result: macrophyte biomass loss of 2 g
 scour(old.size=10, size.min=2, S=0.6, Vlow=2.0, Vhigh=3.5, V=2.5, type=3)
 
-#Result: 6
+#Result: macrophyte biomass loss of 6 g
 scour(old.size=10, size.min=2, S=0.6, Vlow=2.0, Vhigh=3.5, V=3.6, type=3)
 
 }

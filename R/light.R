@@ -20,7 +20,8 @@
 #' Astro?
 #' 
 #' @examples
-#' #Result: 2879.4155 1882.2661  382.6393
+#' #Result: a vector of the following three PAR values in microEinsteins: 
+#' #2879.4155, 1882.2661, 382.6393
 #' light(120,25)
 #' 
 #' @export

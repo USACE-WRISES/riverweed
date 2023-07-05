@@ -39,16 +39,16 @@
 #' 64(11): 2037-2045. DOI: 10.1111/fwb.13393
 #' 
 #' @examples
-#' #Result: 0.5
+#' #Result: macrophyte biomass gain of 0.5 g
 #' growth.empirical(10, 0.05, max.size=NA, type=1)
 #' 
-#' #Result: 0.5
+#' #Result: macrophyte biomass gain of 0.5 g
 #' growth.empirical(10, 0.05, type=1)
 #' 
-#' #Result: 1.5
+#' #Result: macrophyte biomass gain of 1.5 g
 #' growth.empirical(30, 0.05, max.size=50, type=1)
 #' 
-#' #Result: 0.6
+#' #Result: macrophyte biomass gain of 0.6 g
 #' growth.empirical(30, 0.05, max.size=50, type=2)
 #' 
 #' @export

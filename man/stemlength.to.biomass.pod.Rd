@@ -47,13 +47,13 @@ Type 6: Power model including branched stems only ($R^{2} = 0.800$).
 $B_{g} = 0.001903129 * L_{cm} ^ 1.363027$
 }
 \examples{
-#Result: 0.048452
+#Result: biomass of 0.048452 g ash-free dry mass
 stemlength.to.biomass.pod(10, type=1)
 
-#Result: 0.023196
+#Result: biomass of 0.023196 g ash-free dry mass
 stemlength.to.biomass.pod(10, type=2)
 
-#Result: 0.067453
+#Result: biomass of 0.067453 g ash-free dry mass
 stemlength.to.biomass.pod(10, type=3)
 
 }

@@ -25,8 +25,15 @@
 #' http://www.esf.edu/efb/schulz/Limnology/Light.html
 #' 
 #' @examples
-#' Result: 2377.8620 1585.2413  396.3103
-#' attenuate(PAR=c(3000, 2000, 500), z=1, prop.reflect=0.1, K=0.12, Kp=0.0235, Bz=0.3, selfshading=TRUE)
+#' #Result: a vector of the following three PAR values in microEinsteins: 
+#' #2394.6852, 1596.4568, 399.1142
+#' attenuate(PAR=c(3000, 2000, 500), z=1, prop.reflect=0.1, K=0.12, Kp=0.0235, Bz=0.3, selfshading=FALSE)
+#' 
+#' #Several ways of increasing the amount of light attenuated, yielding:
+#' #1351.8429, 901.2286, 225.3071
+#' attenuate(PAR=c(3000, 2000, 500), z=1.5, prop.reflect=0.2, K=0.32, Kp=0.235, Bz=0.4, selfshading=TRUE)
+#' 
+#' #
 #' 
 #' @export
 

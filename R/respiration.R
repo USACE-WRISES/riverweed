@@ -23,13 +23,13 @@
 #' 
 #' 
 #' @examples
-#' #Result: 0.015
+#' #Result: macrophyte biomass loss of 0.015 g
 #' respiration(kmprime=0.0225, temp=15, liveweight=2, totalweight=2, glucosereq=1.5)
 #' 
-#' #Result: 0.01
+#' #Result: macrophyte biomass loss of 0.01 g
 #' respiration(kmprime=0.0225, temp=15, liveweight=2, totalweight=3, glucosereq=1.5)
 #' 
-#' #Result: 0.02222222
+#' #Result: macrophyte biomass loss of 0.02222222 g
 #' respiration(kmprime=0.05, temp=15, liveweight=2, totalweight=3, glucosereq=1.5)
 #' 
 #' @export

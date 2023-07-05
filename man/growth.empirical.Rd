@@ -17,7 +17,7 @@ set to NA for exponential growth).}
 \item{type}{form of growth model as integer of 1 for exponential growth or 2 for logistic growth.}
 }
 \value{
-size of macrophyte after growth.
+daily macrophyte biomass gain due to exponential or logistic growth.
 }
 \description{
 \code{growth.empirical} calculates the daily biomass growth of a macrophyte
@@ -43,16 +43,16 @@ of 1e6 so that simulating exponential growth (type=1) does not require specifyin
 for most reasonable biomass values.
 }
 \examples{
-#Result: 0.5
+#Result: macrophyte biomass gain of 0.5 g
 growth.empirical(10, 0.05, max.size=NA, type=1)
 
-#Result: 0.5
+#Result: macrophyte biomass gain of 0.5 g
 growth.empirical(10, 0.05, type=1)
 
-#Result: 1.5
+#Result: macrophyte biomass gain of 1.5 g
 growth.empirical(30, 0.05, max.size=50, type=1)
 
-#Result: 0.6
+#Result: macrophyte biomass gain of 0.6 g
 growth.empirical(30, 0.05, max.size=50, type=2)
 
 }

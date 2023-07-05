@@ -27,22 +27,22 @@
 #'  DOI: 10.1111/fwb.13393.
 #' 
 #' @examples
-#' #Result: 5
+#' #Result: macrophyte biomass loss of 5 g
 #' scour(old.size=10, size.min=2, S=0.5, Vlow=2.0, Vhigh=3.5, V=2.5, type=1)
 #' 
-#' #Result: 0
+#' #Result: macrophyte biomass loss of 0 g
 #' scour(old.size=0.8, size.min=2, S=0.5, Vlow=2.0, Vhigh=3.5, V=2.5, type=2)
 #' 
-#' #Result: 0.4
+#' #Result: macrophyte biomass loss of 0.4 g
 #' scour(old.size=0.8, size.min=2, S=0.5, Vlow=2.0, Vhigh=3.5, V=3.6, type=2)
 #' 
-#' #Result: 0
+#' #Result: macrophyte biomass loss of 0 g
 #' scour(old.size=10, size.min=2, S=0.6, Vlow=2.0, Vhigh=3.5, V=1, type=3)
 #' 
-#' #Result: 2
+#' #Result: macrophyte biomass loss of 2 g
 #' scour(old.size=10, size.min=2, S=0.6, Vlow=2.0, Vhigh=3.5, V=2.5, type=3)
 #' 
-#' #Result: 6
+#' #Result: macrophyte biomass loss of 6 g
 #' scour(old.size=10, size.min=2, S=0.6, Vlow=2.0, Vhigh=3.5, V=3.6, type=3)
 #' 
 #' @export

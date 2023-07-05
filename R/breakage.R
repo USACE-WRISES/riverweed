@@ -19,10 +19,10 @@
 #' Club 64(1): 17-36.
 #' 
 #' @examples
-#' #Result: 0
+#' #Result: macrophyte biomass loss of 0 g
 #' breakage(20, 50)
 #' 
-#' #Result: 20
+#' #Result: macrophyte biomass loss of 20 g
 #' breakage(70, 50)
 #' 
 #' 

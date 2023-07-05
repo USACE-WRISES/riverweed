@@ -22,7 +22,8 @@ at three times of day based on latitude and Julian day
 Given Julian day and latitude, this function calculates photosynthetically active radiation (PAR) in microEinsteins at the water surface following GenVeg (CITE, plus their sources).  This function returns a vector of PAR values corresponding to three times of day, roughly midday, morning/afternoon, and dawn/dusk.
 }
 \examples{
-#Result: 2879.4155 1882.2661  382.6393
+#Result: a vector of the following three PAR values in microEinsteins: 
+#2879.4155, 1882.2661, 382.6393
 light(120,25)
 
 }

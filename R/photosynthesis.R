@@ -33,11 +33,13 @@
 #' van Nes, Egbert H; Scheffer, Marten; van den Berg, Marcel S., and Coops, Hugo. 2003. Charisma: a spatial explicit simulation model of submerged macrophytes. Ecological Modelling 159: 103-116. 
 #' 
 #' @examples
-#' #Result: 0.8122985
-#' photosynthesis(PAR=c(2500, 1800, 500), pbiomass=1, Pmax=0.2, daylength=12, glucosereq=1.5, temp=15)
+#' #Result: macrophyte biomass gain of 0.8122985 g
+#' photosynthesis(PAR=c(2500, 1800, 500), pbiomass=1, Pmax=0.2, daylength=12, 
+#' glucosereq=1.5, temp=15)
 #' 
-#' #Result: 0.1365957
-#' photosynthesis(PAR=c(2500, 1800, 500), pbiomass=1, Pmax=0.2, daylength=12, glucosereq=1.5, temp=15, Hi=2000, N=20, Hn=30)
+#' #Result: macrophyte biomass gain of 0.1365957 g
+#' photosynthesis(PAR=c(2500, 1800, 500), pbiomass=1, Pmax=0.2, daylength=12, 
+#' glucosereq=1.5, temp=15, Hi=2000, N=20, Hn=30)
 #' 
 #' @export
 

@@ -12,7 +12,7 @@ breakage(stem.cm, max.stem.cm)
 \item{max.stem.cm}{physiological maximum of stem length in cm.}
 }
 \value{
-size of macrophyte after breakage as stem length in cm.
+daily macrophyte loss due to breakage, a positive number.
 }
 \description{
 \code{breakage} removes stem length for physiologically unrealistic stem length
@@ -29,10 +29,10 @@ Hammond, Bayard L. 1937. Development of Podostemon ceratophyllum. Bulletin of th
 Club 64(1): 17-36.
 }
 \examples{
-#Result: 0
+#Result: macrophyte biomass loss of 0 g
 breakage(20, 50)
 
-#Result: 20
+#Result: macrophyte biomass loss of 20 g
 breakage(70, 50)
 
 

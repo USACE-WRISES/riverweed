@@ -18,10 +18,10 @@
 #' Astro?
 #' 
 #' @examples
-#' #Result: 12.90703
+#' #Result: day length of 12.90703 hours
 #' daylength(120,25)
 #' 
-#' #Result: 11.74682
+#' #Result: day length of 11.74682 hours
 #' daylength(200,-5)
 #' 
 #' @export

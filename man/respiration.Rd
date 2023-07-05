@@ -17,6 +17,9 @@ respiration(kmprime, temp, liveweight, totalweight, glucosereq)
 
 \item{glucosereq}{glucose requirement for growth. GenVeg, citing Teh (2006) Table 7.4, give values of 1.436 for leaves, 1.513 for stems, and 1.444 for roots.}
 }
+\value{
+daily biomass loss due to maintenance respiration, a positive number.
+}
 \description{
 \code{respiration} calculates the amount of biomass lost by a macrophyte on a given day due to maintenance respiration.
 }
@@ -25,13 +28,13 @@ This function calculates macrophyte biomass losses due to maintenance respiratio
 Inclusion of standing dead biomass via the totalweight argument is carried over from GenVeg, where standing dead biomass was used as a proxy of plant age, and maintenance respiration assumed to decrease in older plants.  The effects of standing dead biomass in other circumstances should be considered with caution.
 }
 \examples{
-#Result: 0.015
+#Result: macrophyte biomass loss of 0.015 g
 respiration(kmprime=0.0225, temp=15, liveweight=2, totalweight=2, glucosereq=1.5)
 
-#Result: 0.01
+#Result: macrophyte biomass loss of 0.01 g
 respiration(kmprime=0.0225, temp=15, liveweight=2, totalweight=3, glucosereq=1.5)
 
-#Result: 0.02222222
+#Result: macrophyte biomass loss of 0.02222222 g
 respiration(kmprime=0.05, temp=15, liveweight=2, totalweight=3, glucosereq=1.5)
 
 }
