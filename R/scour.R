@@ -59,7 +59,7 @@ scour <- function(old.size, size.min, S, Vlow, Vhigh, V, type){
   #Type 1: lose constant proportion of size
   else if(type == 1){scour.loss <- S * old.size}
   
-  #Type 2: lose constant proportion of size when velocity above threshold, otherwise no herbivory
+  #Type 2: lose constant proportion of size when velocity above threshold, otherwise no scour
   else if(type == 2){scour.loss <- ifelse(V > Vhigh, S * old.size, 0)}
   
   #Type 3: step function: lose no biomass when V < Vlow, lose maximum proportion of biomass when V > Vhigh, and transition linearly between them.
