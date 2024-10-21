@@ -17,7 +17,7 @@ URL: GitHub (<https://github.com/USACE-WRISES>)
 Vignettes: Original documentation can be found in Dietterich and McKay (2023).
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Depends: 
     R (>= 4.1.0)
 LazyData: true

@@ -60,7 +60,7 @@ growth.empirical <- function(old.size, growth.rate, max.size=1000000, type){
   #Error handling for invalid inputs
   if(old.size < 0){stop("Macrophyte size cannot be negative")}
   if(type==2){if(max.size < 0){stop("Macrophyte size cannot be negative")}}
-  if(type==2){if(old.size > max.size){stop("old.size cannot exceed max.size")}}
+  #if(type==2){if(old.size > max.size){stop("old.size cannot exceed max.size")}}
   if(growth.rate < 0){stop("Growth rate cannot be negative")}
   if(is.logical(old.size) || is.logical(growth.rate) || isTRUE(max.size) || isFALSE(max.size) || 
      is.logical(type)){stop("Invalid input")}
