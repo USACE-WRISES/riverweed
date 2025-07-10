@@ -20,7 +20,8 @@
 #' 
 #' @references
 #' Chakraborty, P. K.; Banerjee, S.; Mukherjee, A.; Nath, R.; and Samanta, S. 2018. Extinction coefficient and photosynthetically active radiation use efficiency of summer rice as influenced by transplanting dates. Journal of Environmental Biology 39: 467-471. DOI: http://doi.org/10.22438/jeb/39/4/MRN-661.
-#' van Nes, Egbert H; Scheffer, Marten; van den Berg, Marcel S., and Coops, Hugo. 2003. Charisma: a spatial explicit simulation model of submerged macrophytes. Ecological Modelling 159: 103-116. 
+#' GenVeg
+#' van Nes, Egbert H; Scheffer, Marten; van den Berg, Marcel S., and Coops, Hugo. 2003. Charisma: a spatial explicit simulation model of submerged macrophytes. Ecological Modelling 159: 103-116. https://doi.org/10.1016/S0304-3800(02)00275-2.
 #' http://www.lakeaccess.org/ecology/lakeecologyprim3.html
 #' http://www.esf.edu/efb/schulz/Limnology/Light.html
 #' 

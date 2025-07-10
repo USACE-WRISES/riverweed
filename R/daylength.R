@@ -8,14 +8,12 @@
 #' @return daylength, the number of hours between sunrise and sunset.
 #'  
 #' @details 
-#' Given Julian day and latitude, this function calculates day length in hours following GenVeg (CITE, plus their sources).
-#' 
-#' 
-#' 
+#' Given Julian day and latitude, this function calculates day length in hours 
+#' following GenVeg (CITE, plus their sources).
 #' 
 #' @references
 #' GenVeg
-#' Astro?
+#' Astro? (which would be Goudriaan?)
 #' 
 #' @examples
 #' #Result: day length of 12.90703 hours
@@ -33,7 +31,7 @@ daylength <- function(day, lat){
   if(abs(lat)>90){stop("Latitude must be between -90 and 90 degrees")}
   
   degree.to.rad <- pi/180 #LD addition
-  xgauss <- c(0.1127, 0.5, 0.8873) #LD addition, from xgauss in 20220816 GenVeg code - check with Todd
+  xgauss <- c(0.1127, 0.5, 0.8873) #LD addition, from xgauss in 20220816 GenVeg code
   declination <- (-asin ((sin(23.45 * degree.to.rad)) * (cos(2 * pi * (day + 10) / 365))))
   
   #intermediate variables
