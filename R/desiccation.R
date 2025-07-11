@@ -4,9 +4,8 @@
 #' 
 #' @param old.size size at prior time step (e.g., biomass or stem length).
 #' @param D desiccation rate in proportion lost per day.
-#' @param depth a vector of water depths at the last N time steps, where N = dry.time.limit 
+#' @param depth a vector of water depths at the last N time steps, where N is equal to the number of time steps the macrophyte can tolerate at water depths shallower than depth.limit without experiencing desiccation.
 #' @param depth.limit shallowest water depth the macrophyte can tolerate without experiencing desiccation.
-#' @param dry.time.limit number of time steps the macrophyte can tolerate at water depths shallower than depth.limit without experiencing desiccation.
 #' 
 #' @return daily macrophyte loss due to desiccation, a positive number.
 #' 
