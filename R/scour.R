@@ -1,25 +1,32 @@
 #' Calculate macrophyte losses to scour based on empirical data
 #'
-#' \code{scour} calculates the size of a macrophyte after losses due to scour.
+#' \code{scour} calculates macrophyte losses due to scour.
 #' 
 #' @param old.size size at prior time step.
 #' @param size.min minimum size at which macrophyte is susceptible to scour.
 #' @param S maximum scour rate in proportion lost per day.
-#' @param Vhigh flow velocity (in m/s) above which scour is at the maximum rate.
-#' @param Vlow flow velocity (in m/s) below which scour is 0.
-#' @param V flow velocity in m/s.
+#' @param Vhigh flow velocity above which scour is at the maximum rate.
+#' @param Vlow flow velocity below which scour is 0.
+#' @param V flow velocity.
 #' @param type an integer between 1 and 3 specifying the numerical form of the scour model.
 #'
-#' @return daily macrophyte biomass loss due to scour, a positive number.
+#' @return daily macrophyte loss due to scour, a positive number.
 #' 
 #' @details 
-#' This function calculates macrophyte size (stem length or biomass) following losses due to scour in a 
+#' This function calculates macrophyte size (e.g., stem length or biomass) lost due to scour in a 
 #' given time step. The extent of scour is considered to be positively related to flow velocity (Wood et 
 #' al. 2019). This function allows the velocity-scour relationship to take multiple forms, described 
 #' below, where old.size is the size of the macrophyte at the beginning of the time step, S is the maximum
-#' scour rate in proportion lost per day, Vlow is the flow velocity (in m/s) below which scour is 0, Vhigh 
-#' is the flow velocity (in m/s) above which scour is at its maximum rate S, and V is the flow velocity in
-#' the current time step, in m/s. All measures of macrophyte size must use the same units.
+#' scour rate in proportion lost per day, Vlow is the flow velocity below which scour is 0, Vhigh 
+#' is the flow velocity above which scour is at its maximum rate S, and V is the flow velocity in
+#' the current time step. All measures of macrophyte size must use the same units.
+#' 
+#' Type 1: Constant scour.
+#' 
+#' Type 2: Scour occurs at rate S whenever velocity is above a threshold.
+#' 
+#' Type 3: Scour is described by a step function, starting at zero for velocities less 
+#' than Vlow, and increasing linearly to reach its maximum rate S when velocity reaches Vhigh.
 #' 
 #' @references
 #'  Wood JL, Skaggs JW, Conn C, Freeman MC. 2019. Water velocity regulates macro-consumer herbivory on
@@ -36,13 +43,13 @@
 #' #Result: macrophyte biomass loss of 0.4 g
 #' scour(old.size=0.8, size.min=2, S=0.5, Vlow=2.0, Vhigh=3.5, V=3.6, type=2)
 #' 
-#' #Result: macrophyte biomass loss of 0 g
+#' #Result: macrophyte stem length loss of 0 cm
 #' scour(old.size=10, size.min=2, S=0.6, Vlow=2.0, Vhigh=3.5, V=1, type=3)
 #' 
-#' #Result: macrophyte biomass loss of 2 g
+#' #Result: macrophyte stem length loss of 2 cm
 #' scour(old.size=10, size.min=2, S=0.6, Vlow=2.0, Vhigh=3.5, V=2.5, type=3)
 #' 
-#' #Result: macrophyte biomass loss of 6 g
+#' #Result: macrophyte stem length loss of 6 cm
 #' scour(old.size=10, size.min=2, S=0.6, Vlow=2.0, Vhigh=3.5, V=3.6, type=3)
 #' 
 #' @export

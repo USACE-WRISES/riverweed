@@ -13,11 +13,10 @@
 #' 
 #' 
 #' 
-
 #' 
 #' @references
 #' GenVeg
-#' Astro?
+#' Astro? (Goudriaan?)
 #' 
 #' @examples
 #' #Result: a vector of the following three PAR values in microEinsteins: 

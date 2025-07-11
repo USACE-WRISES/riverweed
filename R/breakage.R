@@ -1,6 +1,6 @@
 #' Break unrealistically large macrophytes
 #'
-#' \code{breakage} limits macrophyte size by removing macrophyte tissue (e.g., breaking unrealistically long stems) above a specified size. 
+#' \code{breakage} calculates macrophyte losses due to stem breakage above a physiological threshold.
 #' 
 #' @param current.size current size of macrophyte (e.g., biomass or stem length)
 #' @param max.size physiological maximum size before breakage occurs

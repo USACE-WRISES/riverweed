@@ -1,17 +1,20 @@
 #' Calculate macrophyte mortality
 #'
-#' \code{mortality} calculates macrophyte biomass loss due to mortality
+#' \code{mortality} calculates macrophyte size loss due to mortality
 #' 
-#' @param old.size initial biomass of macrophyte
-#' @param mort.rate mortality rate of macrophyte, in g/g/day
+#' @param old.size initial size of macrophyte
+#' @param mort.rate mortality rate of macrophyte, in /day
 #'
 #' @return daily biomass loss due to mortality, as a positive number
 #'  
 #' @details 
-#' Calculates plant mortality, following NetLogo version of mortality rather than R GenVeg version. Note GenVeg uses mortality rate of 0.021 /d (that is, 2.1% loss per day), and the GenVeg NetLogo mortality file contains some interesting simple respiration functions.
+#' Calculates plant mortality, following NetLogo version of mortality rather than R 
+#' GenVeg version. Note GenVeg uses mortality rate of 0.021 /d (that is, 2.1% loss per 
+#' day), and the GenVeg NetLogo mortality file contains some interesting simple 
+#' respiration functions.
 #' 
 #' @references
-#' Rack, Laura. 2022. River Basin Center, University of Georgia. Unpublished data. 
+#' GenVeg
 #' 
 #' @examples
 #' #Result: macrophyte biomass loss of 3 g

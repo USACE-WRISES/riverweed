@@ -15,8 +15,6 @@
 #' Inclusion of standing dead biomass via the totalweight argument is carried over from GenVeg, where standing dead biomass was used as a proxy of plant age, and maintenance respiration assumed to decrease in older plants.  The effects of standing dead biomass in other circumstances should be considered with caution.
 #' 
 #' 
-
-#' 
 #' @references
 #' GenVeg
 #' Teh, Christopher B. S. 2006. Introduction to mathematical modeling of crop growth: How the equations are derived and assembled into a computer model. Boca Raton, FL: BrownWalker Press.

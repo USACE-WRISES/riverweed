@@ -16,7 +16,7 @@
 #' change.size is the growth during that time step, growth.rate is the relative growth rate in 
 #' unit / unit per time step, old.size is the size of the macrophyte at the beginning of the time step, 
 #' and max.size is the maximum size the macrophyte is allowed to reach. All measures of macrophyte size 
-#' must use the same units in order for outputs to make sense.
+#' must use the same units.
 #' 
 #' Type 1: Exponential growth model.
 #' $change.size = growth.rate*old.size$

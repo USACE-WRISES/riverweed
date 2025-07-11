@@ -1,31 +1,31 @@
 #' Calculate macrophyte losses to herbivory based on empirical data
 #'
-#' \code{herbivory} calculates the size of a macrophyte after losses due to herbivory.
+#' \code{herbivory} calculates macrophyte losses due to herbivory.
 #' 
 #' @param old.size size at prior time step.
 #' @param H maximum herbivory rate in proportion lost per day.
-#' @param Vlow flow velocity (in m/s) below which herbivory is at the maximum rate.
-#' @param Vhigh flow velocity (in m/s) above which herbivory is 0.
-#' @param V flow velocity in m/s.
+#' @param Vlow flow velocity below which herbivory is at the maximum rate.
+#' @param Vhigh flow velocity above which herbivory is 0.
+#' @param V flow velocity.
 #' @param type an integer between 1 and 3 specifying the numerical form of the herbivory model.
 #'
-#' @return daily macrophyte biomass loss due to herbivory, a positive number.
+#' @return daily macrophyte loss due to herbivory, a positive number.
 #'  
 #' @details 
-#' This function calculates macrophyte size (stem length or biomass) following losses due to herbivory in a 
+#' This function calculates macrophyte size (e.g., stem length or biomass) lost due to herbivory in a 
 #' given time step. The extent of herbivory is considered to be negatively related to flow velocity (Wood 
 #' et al. 2019). This function allows the velocity-herbivory relationship to take multiple forms, described 
 #' below, where old.size is the size of the macrophyte at the beginning of the time step, H is the maximum 
-#' herbivory rate in proportion lost per day, Vlow is the flow velocity (in m/s) below which herbivory
-#' is at its maximum rate H, Vhigh is the flow velocity (in m/s) above which herbivory ceases, and V
-#' is the flow velocity in the current time step, in m/s. All measures of macrophyte size must use the same
+#' herbivory rate in proportion lost per day, Vlow is the flow velocity below which herbivory
+#' is at its maximum rate H, Vhigh is the flow velocity above which herbivory ceases, and V
+#' is the flow velocity in the current time step. All measures of macrophyte size must use the same
 #' units.
 #' 
 #' Type 1: Constant herbivory.
 #' 
-#' Type 2: Herbivory is driven by a threshold in velocity.
+#' Type 2: Herbivory occurs at rate H whenever velocity is below a threshold Vhigh.
 #' 
-#' Type 3: Herbivory is described by a step function, starting at its maximum rate for velocities less 
+#' Type 3: Herbivory is described by a step function, starting at its maximum rate H for velocities less 
 #' than Vlow, and declining linearly to reach zero when velocity reaches Vhigh.
 #' 
 #' @references
@@ -43,13 +43,13 @@
 #' #Result: macrophyte biomass loss of 0 g
 #' herbivory(0.2, H=0.5, Vlow=0.5, Vhigh=2.5, V=2.7, type=2)
 #' 
-#' #Result: macrophyte biomass loss of 6 g
+#' #Result: macrophyte stem length loss of 6 cm
 #' herbivory(20, H=0.3, Vlow=0.5, Vhigh=2.5, V=0.2, type=3)
 #' 
-#' #Result: macrophyte biomass loss of 4.2 g
+#' #Result: macrophyte stem length loss of 4.2 cm
 #' herbivory(20, H=0.3, Vlow=0.5, Vhigh=2.5, V=1.1, type=3)
 #' 
-#' #Result: macrophyte biomass loss of 0 g
+#' #Result: macrophyte stem length loss of 0 cm
 #' herbivory(20, H=0.3, Vlow=0.5, Vhigh=2.5, V=2.6, type=3)
 #' 
 #' @export
